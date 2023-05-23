@@ -164,13 +164,21 @@ WHERE DEPARTMENT_NAME IN('재정', '인사', '영업');
 --1. 부서명 영업부를 삭제 하세요
 DELETE FROM DEPTS WHERE DEPARTMENT_NAME = '영업';
 
+--쌤답변 v
+DELETE FROM DEPTS WHERE DEPARTMENT_ID = 320;
+
 --2. 부서명 NOC를 삭제하세요
 DELETE FROM DEPTS WHERE DEPARTMENT_NAME = 'NOC';
 
+--쌤답변 v
+DELETE FROM DEPTS WHERE DEPARTMENT_ID = 220;
 
 --문제4
 --1. Depts 사본테이블에서 department_id 가 200보다 큰 데이터를 삭제하세요.
 DELETE FROM DEPTS WHERE DEPARTMENT_ID > 200;
+--쌤 답변v 
+--DELETE FROM DEPTS WHERE DEPARTMENT_ID >= 200; // 차이: 부등호가 >=로 되어있음 
+
 
 --2. Depts 사본테이블의 manager_id가 null이 아닌 데이터의 manager_id를 전부 100으로 변경하세요.
 UPDATE DEPTS
@@ -204,6 +212,9 @@ COMMIT;
 --문제 5
 --1. jobs_it 사본 테이블을 생성하세요 (조건은 min_salary가 6000보다 큰 데이터만 복사합니다)
 CREATE TABLE JOBS_IT AS(SELECT * FROM JOBS WHERE MIN_SALARY > 6000);
+--쌤답변 v
+CREATE TABLE JOBS_IT AS(SELECT * FROM JOBS WHERE MIN_SALARY > 6000 AND 1 = 1);
+
 
 SELECT * FROM JOBS_IT;
 --2. jobs_it 테이블에 다음 데이터를 추가하세요
